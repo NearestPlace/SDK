@@ -2,8 +2,7 @@ import expect from 'expect';
 
 import SDK from '../lib/index';
 
-const NearestSDK = new SDK({});
-
+let NearestSDK;
 /**
   Tests
   ----------
@@ -26,6 +25,20 @@ const NearestSDK = new SDK({});
   - should call query with wrong keys and throw error
 
 */
+describe('Init the SDK', () => {
+  it('The SDK init should throw an error because of missing publicKey', (done) => {
+    const createInstance = () => new SDK();
+    expect(createInstance).toThrowAnyError();
+    done();
+  });
+  it('The SDK init should work correctly', (done) => {
+    NearestSDK = new SDK({
+      publicKey: '1-2-3',
+    });
+    done();
+  });
+});
+
 describe('Test FETCH functionality', () => {
   it('fetch should return a promise', (done) => {
     const myPromise = NearestSDK.nodes.get({});
