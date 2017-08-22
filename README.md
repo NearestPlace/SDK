@@ -20,17 +20,16 @@ const SDK = NearestSDK({
 ## The API
 The API works with this schema: `SDK.$topic.$action()`.
 
-### Nodes
-Working with codes provide the following actions:
+### Server
+Information from the server. Could be used for testing.
 
-* get
+* **info**: Get info of Endpoint Server
 
-#### nodes.get
+#### server.version
 ``` javascript
-SDK.nodes.get({
-	_id: 'a-special-id',
-}).then((nodes) => {
-	// work with returned nodes objects
+SDK.server.info({}).then((serverInfo) => {
+	const { version } = serverInfo;
+	// do smth with it
 }, (err) => {
 	// work with the err
 });

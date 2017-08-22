@@ -55,9 +55,10 @@ describe('Callback options of SDK Call', () => {
 });
 
 describe('Endpoint Actions', () => {
-  it('fetch should work and return graphql server version', (done) => {
-    NearestSDK.server.version({}, (err, result) => {
+  it('fetch should work and return graphql server info', (done) => {
+    NearestSDK.server.info({}, (err, result) => {
       expect(err).to.be.null; // eslint-disable-line no-unused-expressions
+      expect(result).to.be.an('object');
       expect(result).to.have.property('version');
       done();
     });
