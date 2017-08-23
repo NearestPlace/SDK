@@ -54,12 +54,29 @@ describe('Callback options of SDK Call', () => {
   });
 });
 
-describe('Endpoint Actions', () => {
+describe('Server Endpoint', () => {
   it('fetch should work and return graphql server info', (done) => {
     NearestSDK.server.info({}, (err, result) => {
       expect(err).to.be.null; // eslint-disable-line no-unused-expressions
       expect(result).to.be.an('object');
       expect(result).to.have.property('version');
+      done();
+    });
+  });
+});
+
+describe('Node Endpoints', () => {
+  it('fetch a nodeid and return its data', (done) => {
+    NearestSDK.nodes.get({
+      id: 'LqYXFQCu95k6NvwRy',
+    }, (err, result) => {
+      if (err) {
+        console.log('Problem:', err); // eslint-disable-line no-console
+      }
+      expect(err).to.be.null; // eslint-disable-line no-unused-expressions
+      expect(result).to.be.an('object');
+      expect(result).to.have.property('id');
+      expect(result.id).to.be.equal('LqYXFQCu95k6NvwRy');
       done();
     });
   });
