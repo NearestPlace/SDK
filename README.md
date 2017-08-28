@@ -10,9 +10,9 @@ Now you can use the SDK by importing it. The code is isomophic ready.
 ## Init SDK
 
 ``` javascript
-import NearestSDK from 'nearest-sdk';
+import { NearestClient } from 'nearest-sdk';
 
-const SDK = NearestSDK({
+const SDK = NearestClient({
 	publicKey: 'your-api-public-key',
 });
 ```

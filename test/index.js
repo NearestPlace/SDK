@@ -1,5 +1,5 @@
 import chai from 'chai';
-import SDK from '../lib/index';
+import { NearestClient } from '../lib/index';
 
 const expect = chai.expect;
 
@@ -28,12 +28,12 @@ let NearestSDK;
 */
 describe('Init the SDK', () => {
   it('The SDK init should throw an error because of missing publicKey', (done) => {
-    const createInstance = () => new SDK();
+    const createInstance = () => new NearestClient();
     expect(createInstance).to.throw();
     done();
   });
   it('The SDK init should work correctly', (done) => {
-    NearestSDK = new SDK({
+    NearestSDK = new NearestClient({
       publicKey: '1-2-3',
     });
     done();
