@@ -1,6 +1,6 @@
 {
   "name": "nearest-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SDK for Nearest! services",
   "main": "./dist/index.js",
   "scripts": {
