@@ -3,6 +3,8 @@ import { NearestClient } from '../lib/index';
 
 const expect = chai.expect;
 
+const TestAppId = '5fHa6zTDBohz4RrsM';
+
 let NearestSDK;
 /**
   Tests
@@ -35,6 +37,7 @@ describe('Init the SDK', () => {
   it('The SDK init should work correctly', (done) => {
     NearestSDK = new NearestClient({
       publicKey: '1-2-3',
+      app: TestAppId,
     });
     done();
   });
@@ -69,6 +72,7 @@ describe('Node Endpoints', () => {
   it('fetch a nodeid and return its data', (done) => {
     NearestSDK.nodes.get({
       id: 'LqYXFQCu95k6NvwRy',
+      // app: TestAppId,
     }, (err, result) => {
       if (err) {
         console.log('Problem:', err); // eslint-disable-line no-console
