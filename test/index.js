@@ -69,18 +69,36 @@ describe('Server Endpoint', () => {
 });
 
 describe('Node Endpoints', () => {
-  it('fetch a nodeid and return its data', (done) => {
+  it('fetch a nodeid and return its data via Promise', (done) => {
     NearestSDK.nodes.get({
-      id: 'LqYXFQCu95k6NvwRy',
-      // app: TestAppId,
+      id: ['LqYXFQCu95k6NvwRy'],
+      app: TestAppId,
+      fields: ['id', 'status'],
+    })
+      .then((data) => {
+        // console.log(data);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
+  });
+
+
+  it('fetch a nodeid and return its data via Callback', (done) => {
+    NearestSDK.nodes.get({
+      id: ['LqYXFQCu95k6NvwRy'],
+      app: TestAppId,
     }, (err, result) => {
       if (err) {
         console.log('Problem:', err); // eslint-disable-line no-console
       }
+      console.log(result);
       expect(err).to.be.null; // eslint-disable-line no-unused-expressions
-      expect(result).to.be.an('object');
-      expect(result).to.have.property('id');
-      expect(result.id).to.be.equal('LqYXFQCu95k6NvwRy');
+      expect(result).to.be.an('array')
+        .and.to.have.lengthOf(1);
+      expect(result[0]).to.have.property('id')
+        .and.to.be.equal('LqYXFQCu95k6NvwRy');
       done();
     });
   });
