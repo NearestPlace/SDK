@@ -74,7 +74,7 @@ describe('Node Endpoints', () => {
       fields: ['id'],
     })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         done();
       })
       .catch((error) => {
@@ -105,7 +105,7 @@ describe('Node Endpoints', () => {
       if (err) {
         console.log('Problem:', err); // eslint-disable-line no-console
       }
-      console.log(result);
+      // console.log(result);
       expect(err).to.be.null; // eslint-disable-line no-unused-expressions
       expect(result).to.be.an('array')
         .and.to.have.lengthOf(1);
