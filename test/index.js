@@ -103,9 +103,8 @@ describe('Node Endpoints', () => {
       app: TestAppId,
     }, (err, result) => {
       if (err) {
-        console.log('Problem:', err); // eslint-disable-line no-console
+        console.log('Problem:', err);
       }
-      // console.log(result);
       expect(err).to.be.null; // eslint-disable-line no-unused-expressions
       expect(result).to.be.an('array')
         .and.to.have.lengthOf(1);
@@ -115,7 +114,7 @@ describe('Node Endpoints', () => {
     });
   });
 
-  it('fetch nearest nodes and return data via Promise', (done) => {
+  it('Get nearest nodes and return data via Promise', (done) => {
     NearestSDK.nodes.nearest({
       app: TestAppId,
       lat: 52.49367,
@@ -126,6 +125,21 @@ describe('Node Endpoints', () => {
       .then((result) => {
         expect(result).to.be.an('array')
           .and.to.have.lengthOf(10);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
+  });
+
+  it('Get a cluster for a specific region (62422) via Promise', (done) => {
+    NearestSDK.nodes.cluster({
+      app: TestAppId,
+      fields: ['cluster'],
+      regionId: [62422],
+    })
+      .then((result) => {
+        expect(result).to.be.an('array');
         done();
       })
       .catch((error) => {
