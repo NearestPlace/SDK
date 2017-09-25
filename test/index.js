@@ -89,7 +89,6 @@ describe('Node Endpoints', () => {
       fields: ['id', 'status'],
     })
       .then((data) => {
-        // console.log(data);
         done();
       })
       .catch((error) => {
@@ -112,6 +111,42 @@ describe('Node Endpoints', () => {
         .and.to.be.equal('LqYXFQCu95k6NvwRy');
       done();
     });
+  });
+
+  it('Get nodes by region and return its data via Promise', (done) => {
+    NearestSDK.nodes.getByRegion({
+      app: TestAppId,
+      regionId: [62422],
+      fields: ['id', 'status'],
+    })
+      .then((data) => {
+        // console.log(data);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
+  });
+
+  it('Get nodes by bound and return its data via Promise', (done) => {
+    NearestSDK.nodes.getByBound({
+      app: TestAppId,
+      bound: [
+        [13.0883500240376, 52.3382599827022],
+        [13.0883500240376, 52.6755099903978],
+        [13.7611599647432, 52.6755099903978],
+        [13.7611599647432, 52.3382599827022],
+        [13.0883500240376, 52.3382599827022],
+      ],
+      fields: ['id', 'status'],
+    })
+      .then((data) => {
+        // console.log(data);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
   });
 
   it('Get nearest nodes and return data via Promise', (done) => {
