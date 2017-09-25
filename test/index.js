@@ -69,6 +69,19 @@ describe('Server Endpoint', () => {
 });
 
 describe('Node Endpoints', () => {
+  it('fetch an app and return its data via Promise', (done) => {
+    NearestSDK.app.get({
+      fields: ['id'],
+    })
+      .then((data) => {
+        console.log(data);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
+  });
+
   it('fetch a nodeid and return its data via Promise', (done) => {
     NearestSDK.nodes.get({
       id: ['LqYXFQCu95k6NvwRy'],
