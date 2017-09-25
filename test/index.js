@@ -84,7 +84,6 @@ describe('Node Endpoints', () => {
       });
   });
 
-
   it('fetch a nodeid and return its data via Callback', (done) => {
     NearestSDK.nodes.get({
       id: ['LqYXFQCu95k6NvwRy'],
@@ -101,5 +100,23 @@ describe('Node Endpoints', () => {
         .and.to.be.equal('LqYXFQCu95k6NvwRy');
       done();
     });
+  });
+
+  it('fetch nearest nodes and return data via Promise', (done) => {
+    NearestSDK.nodes.nearest({
+      app: TestAppId,
+      lat: 52.49367,
+      lng: 13.43609,
+      radius: 10000,
+      fields: ['id', 'status'],
+    })
+      .then((result) => {
+        expect(result).to.be.an('array')
+          .and.to.have.lengthOf(10);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
   });
 });
