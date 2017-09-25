@@ -29,14 +29,14 @@ let NearestSDK;
 
 */
 describe('Init the SDK', () => {
-  it('The SDK init should throw an error because of missing publicKey', (done) => {
+  it('The SDK init should throw an error because of missing apiKey', (done) => {
     const createInstance = () => new NearestClient();
     expect(createInstance).to.throw();
     done();
   });
   it('The SDK init should work correctly', (done) => {
     NearestSDK = new NearestClient({
-      publicKey: '1-2-3',
+      apiKey: '1-2-3',
       app: TestAppId,
     });
     done();

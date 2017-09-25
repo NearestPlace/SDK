@@ -13,7 +13,7 @@ Now you can use the SDK by importing it. The code is isomophic ready.
 import { NearestClient } from 'nearest-sdk';
 
 const SDK = NearestClient({
-	publicKey: 'your-api-public-key',
+	apiKey: 'your-api-public-key',
 });
 ```
 
