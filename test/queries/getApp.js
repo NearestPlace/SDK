@@ -18,7 +18,7 @@ describe(`App Query (AppId: ${TestAppId})`, () => {
       .and.to.be.equal('{  getAppById (id:"5fHa6zTDBohz4RrsM")  { id } }');
     done();
   });
-  
+
   it(`Get App by its id (${TestAppId}) and return (Promise) its data.`, (done) => {
     NearestSDK.app.get({
       fields: ['id'],
