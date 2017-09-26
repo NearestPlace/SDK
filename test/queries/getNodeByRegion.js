@@ -11,6 +11,16 @@ const NearestSDK = new NearestClient({
 });
 
 describe(`NodeByRegion Query (AppId: ${TestAppId})`, () => {
+  it('Get the raw Query', (done) => {
+    const query = NearestSDK.nodes.getByRegionQuery({
+      regionId: TestRegionIds,
+      fields: ['id'],
+    });
+    expect(`{ ${query} }`).to.be.a('string')
+      .and.to.be.equal('{  getNodesByRegion (app:"5fHa6zTDBohz4RrsM",regionId:[62422,62782],limit:10)  { id } }');
+    done();
+  });
+
   it(`Get Node by regions (${TestRegionIds}) and return (Promise) its data.`, (done) => {
     NearestSDK.nodes.getByRegion({
       regionId: TestRegionIds,

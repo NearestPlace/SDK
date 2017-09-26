@@ -11,6 +11,16 @@ const NearestSDK = new NearestClient({
 });
 
 describe(`Node Query (AppId: ${TestAppId})`, () => {
+  it('Get the raw Query ("{  getNodeById (app:"5fHa6zTDBohz4RrsM",id:["TueShSRa5WTTkazoS","QZdcxZkYCQ2nJz7PZ"])  { id } }")', (done) => {
+    const query = NearestSDK.nodes.getQuery({
+      id: TestNodeIds,
+      fields: ['id'],
+    });
+    expect(`{ ${query} }`).to.be.a('string')
+      .and.to.be.equal('{  getNodeById (app:"5fHa6zTDBohz4RrsM",id:["TueShSRa5WTTkazoS","QZdcxZkYCQ2nJz7PZ"])  { id } }');
+    done();
+  });
+
   it(`Get Node by its ids (${TestNodeIds}) and return (Promise) its data.`, (done) => {
     NearestSDK.nodes.get({
       id: TestNodeIds,

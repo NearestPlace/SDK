@@ -15,6 +15,15 @@ const NearestSDK = new NearestClient({
 });
 
 describe(`Cluster Query (AppId: ${TestAppId})`, () => {
+  it('Get the raw Query ("{  getNodesCluster (app:\"5fHa6zTDBohz4RrsM\",regionId:[62422])  { cluster } }")', (done) => {
+    const query = NearestSDK.nodes.clusterQuery({
+      regionId: [62422],
+    });
+    expect(`{ ${query} }`).to.be.a('string')
+      .and.to.be.equal('{  getNodesCluster (app:"5fHa6zTDBohz4RrsM",regionId:[62422])  { cluster } }');
+    done();
+  });
+
   it('Get a cluster for a specific region (62422) via Promise', (done) => {
     NearestSDK.nodes.cluster({
       regionId: [62422],

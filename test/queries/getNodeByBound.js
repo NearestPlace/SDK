@@ -17,6 +17,16 @@ const NearestSDK = new NearestClient({
 });
 
 describe(`NodesByBound (AppId: ${TestAppId})`, () => {
+  it('Get the raw Query', (done) => {
+    const query = NearestSDK.nodes.getByBoundQuery({
+      bound: TestBound,
+      fields: ['id'],
+    });
+    expect(`{ ${query} }`).to.be.a('string')
+      .and.to.be.equal('{  getNodesByBound (app:"5fHa6zTDBohz4RrsM",bound:[[13.0883500240376,52.3382599827022],[13.0883500240376,52.6755099903978],[13.7611599647432,52.6755099903978],[13.7611599647432,52.3382599827022],[13.0883500240376,52.3382599827022]],limit:10)  { id } }');
+    done();
+  });
+
   it(`Get Node by bound and return (Promise) its data.`, (done) => {
     NearestSDK.nodes.getByBound({
       bound: TestBound,
