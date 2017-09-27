@@ -39,7 +39,7 @@ describe('Init the SDK', () => {
   });
   it('The SDK init should work correctly', (done) => {
     const NearestSDK = new NearestClient({
-      apiKey: '1-2-3',
+      apiKey: 'Joq7XlDb1529UHe0',
       app: TestAppId,
     });
     done();

@@ -10,7 +10,7 @@ const TestPoint = {
 };
 
 const NearestSDK = new NearestClient({
-  apiKey: '1-2-3',
+  apiKey: 'Joq7XlDb1529UHe0',
   app: TestAppId,
 });
 

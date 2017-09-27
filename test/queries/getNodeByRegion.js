@@ -6,7 +6,7 @@ const TestAppId = '5fHa6zTDBohz4RrsM';
 const TestRegionIds = [62422, 62782];
 
 const NearestSDK = new NearestClient({
-  apiKey: '1-2-3',
+  apiKey: 'Joq7XlDb1529UHe0',
   app: TestAppId,
 });
 
