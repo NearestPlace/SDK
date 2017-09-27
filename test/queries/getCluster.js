@@ -2,6 +2,7 @@ import chai from 'chai';
 import { NearestClient } from '../../lib/index';
 
 const expect = chai.expect;
+const apiKey = process.env.NEARESTAPIKEY || '';
 const TestAppId = '5fHa6zTDBohz4RrsM';
 const TestPoint = {
   lat: 52.49,
@@ -10,7 +11,7 @@ const TestPoint = {
 };
 
 const NearestSDK = new NearestClient({
-  apiKey: 'Joq7XlDb1529UHe0',
+  apiKey,
   app: TestAppId,
 });
 

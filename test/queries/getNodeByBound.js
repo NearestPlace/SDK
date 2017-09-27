@@ -2,6 +2,7 @@ import chai from 'chai';
 import { NearestClient } from '../../lib/index';
 
 const expect = chai.expect;
+const apiKey = process.env.NEARESTAPIKEY || '';
 const TestAppId = '5fHa6zTDBohz4RrsM';
 const TestBound = [
   [13.0883500240376, 52.3382599827022],
@@ -12,7 +13,7 @@ const TestBound = [
 ];
 
 const NearestSDK = new NearestClient({
-  apiKey: 'Joq7XlDb1529UHe0',
+  apiKey,
   app: TestAppId,
 });
 
