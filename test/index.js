@@ -7,3 +7,4 @@ import './queries/getNodeByBound';
 import './queries/getNearest';
 import './queries/getCluster';
 import './queries/getDirections';
+import './queries/regions/get';
