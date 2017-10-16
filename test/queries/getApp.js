@@ -1,7 +1,7 @@
 import chai from 'chai';
 import { NearestClient } from '../../lib/index';
 
-const expect = chai.expect;
+const { expect } = chai;
 const TestAppId = '5fHa6zTDBohz4RrsM';
 const apiKey = process.env.NEARESTAPIKEY || '';
 
