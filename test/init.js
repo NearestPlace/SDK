@@ -6,7 +6,7 @@ import './queries/getNearest';
 
 import { NearestClient } from '../lib/index';
 
-const expect = chai.expect;
+const { expect } = chai;
 const apiKey = process.env.NEARESTAPIKEY || '';
 const TestAppId = '5fHa6zTDBohz4RrsM';
 
