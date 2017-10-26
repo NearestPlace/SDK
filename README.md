@@ -1,4 +1,4 @@
-# Nearest! SDK
+# Nearest! node.js SDK [![npm version](https://badge.fury.io/js/nearest-sdk.svg)](https://badge.fury.io/js/nearest-sdk)
 
 ## Setup
 Install the NPM Package by using
