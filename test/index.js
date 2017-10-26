@@ -6,5 +6,6 @@ import './queries/getNodeByRegion';
 import './queries/getNodeByBound';
 import './queries/getNearest';
 import './queries/getCluster';
+import './queries/getNodesClusterByRegionByBound';
 import './queries/getDirections';
 import './queries/regions/get';
