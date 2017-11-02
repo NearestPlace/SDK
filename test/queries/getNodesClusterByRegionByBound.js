@@ -20,7 +20,7 @@ const NearestSDK = new NearestClient({
   app: TestAppId,
 });
 
-describe(`Cluster Query (AppId: ${TestAppId})`, () => {
+describe(`Cluster Query by region by bound (AppId: ${TestAppId})`, () => {
   it('Get the raw Query ("{  getNodesClusterByRegionsByBound (app:\"5fHa6zTDBohz4RrsM\", .... ")', (done) => {
     const query = NearestSDK.nodes.clusterByRegionsByBoundQuery({
       bound: TestBound,
@@ -30,7 +30,7 @@ describe(`Cluster Query (AppId: ${TestAppId})`, () => {
     done();
   });
 
-  it('Get a cluster for a specific bound via promise', (done) => {
+  it('Get a cluster for a specific bound via Promise', (done) => {
     NearestSDK.nodes.clusterByRegionsByBound({
       bound: TestBound,
     })
@@ -49,7 +49,25 @@ describe(`Cluster Query (AppId: ${TestAppId})`, () => {
       });
   });
 
-  it('Get a cluster for a specific bound and exclude (2978650) via promise', (done) => {
+  it('Get a cluster for a specific bound via Callback', (done) => {
+    NearestSDK.nodes.clusterByRegionsByBound({
+      bound: TestBound,
+    }, (error, result) => {
+      if (error) console.log('Problem', error);
+      if (result) {
+        // console.log(result);
+        expect(result).to.be.an('object')
+          .and.to.have.property('coordinates')
+          .and.to.be.an('array');
+        expect(result).to.be.an('object')
+          .and.to.have.property('regions')
+          .and.to.be.an('array');
+        done();
+      }
+    });
+  });
+
+  it('Get a cluster for a specific bound and exclude (2978650) via Promise', (done) => {
     NearestSDK.nodes.clusterByRegionsByBound({
       bound: TestBound,
       exclude: [TestExclude],

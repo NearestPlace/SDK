@@ -5,7 +5,7 @@ const { expect } = chai;
 const TestAppId = '5fHa6zTDBohz4RrsM';
 const apiKey = process.env.NEARESTAPIKEY || '';
 
-const steps = ['13.437527,52.4945519', '13.4356,52.49405'];
+const steps = [[13.437527, 52.4945519], [13.4356, 52.49405]];
 
 const NearestSDK = new NearestClient({
   apiKey,
@@ -19,7 +19,7 @@ describe(`Directions Query (AppId: ${TestAppId})`, () => {
       fields: ['duration', 'distance'],
     });
     expect(`{ ${query} }`).to.be.a('string')
-      .and.to.be.equal('{  getDirections (steps:["13.437527,52.4945519","13.4356,52.49405"])  { duration,distance } }');
+      .and.to.be.equal('{  getDirections (steps:[[13.437527,52.4945519],[13.4356,52.49405]])  { duration,distance } }');
     done();
   });
 
@@ -43,5 +43,26 @@ describe(`Directions Query (AppId: ${TestAppId})`, () => {
       .catch((error) => {
         console.log('Problem', error);
       });
+  });
+
+  it('Get a directions for 2 steps and return (Callback) its data.', (done) => {
+    NearestSDK.directions.get({
+      steps,
+      fields: ['duration', 'distance', 'geometry'],
+    }, (error, result) => {
+      if (error) console.log('Problem', error);
+      if (result) {
+        expect(result).to.be.a('object')
+          .and.to.have.property('duration')
+          .and.to.be.closeTo(40, 5);
+        expect(result).to.be.a('object')
+          .and.to.have.property('distance')
+          .and.to.be.closeTo(246, 5);
+        expect(result).to.be.a('object')
+          .and.to.have.property('geometry')
+          .and.to.be.a('string');
+        done();
+      }
+    });
   });
 });

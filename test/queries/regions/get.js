@@ -41,6 +41,23 @@ describe(`Regions Query (AppId: ${TestAppId})`, () => {
       });
   });
 
+  it('Get a region for id 51477 and return (Callback) its data.', (done) => {
+    NearestSDK.regions.get({
+      id: 51477,
+      fields: ['id'],
+    }, (error, result) => {
+      if (error) console.log('Problem', error);
+      if (result) {
+        expect(result).to.be.an('array')
+          .and.to.have.lengthOf(1);
+        expect(result[0]).to.be.an('object')
+          .and.to.have.property('id')
+          .and.to.be.equal(51477);
+        done();
+      }
+    });
+  });
+
   it('Get a region for path Germany/Berlin and return (Promise) its data.', (done) => {
     NearestSDK.regions.getByPath({
       path: 'Germany/Berlin',
