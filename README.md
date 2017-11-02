@@ -45,21 +45,96 @@ lang: String	    | The language code (de) for translated content.
 ***
 
 #### nearest
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+lat: Float          | A latitude for specifying a center point. Requires lng and radius.
+lng: Float	        | A longitude for specifying a center point. Requires lat and radius.
+radius: Int         | Max. distance in meters a node is located from the center. Refuires lat and lng.
+lang: String        | The language code (de) for translated content.
+limit: Int          | Limit amount of nodes.
+
+***
+
 #### getByBound
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+bound: [[Float]]!   | Required: Array of coordinates, representing a bounding box.
+limit: Int	        | Limit amount of nodes. Default 10.
+
+***
+
 #### getByRegion
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+regionId: [Int]!    | Required: Array of regionIds (osm_ids)
+limit: Int	        | Max. amount of nodes. Default 10.
+
+***
 
 ### Stats
 #### getStats
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+regions: [Int]!     | Required: Ids of the region
+
+***
+
 #### getCountriesNodesAvailable
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+
+***
+
 #### getRegionsNodesAvailable
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+region: Int!        | Required: Array of region ids (osm_id).
+
+***
 
 ### Regions
 #### get
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+id: [Int]!          | Required: Array of regionIds (osm_id)
+lang: String        | The language code (de) for translated content.
+
+***
+
 #### getByPath
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+path: String!       | Required: Path of a region (Germany/Berlin/Kreuzberg)
+lang: String        | The language code (de) for translated content.
+
+***
+
 #### getByName
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+name: String!       | Required: Name of a region (Bologna)
+lang: String        | The language code (de) for translated content.
+
+***
 
 ### Directions
 #### get
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+steps: [[Float]]!   | Required: The steps of a direction in lng,lat order. [[Lng,Lat],...,[Lng,Lat]]
+mode: String        | Mode of the direction (car or foot)
+
+***
 
 ### Server
 Information from the server. Could be used for testing.
