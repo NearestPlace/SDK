@@ -1,10 +1,10 @@
-# Nearest! JavaScript SDK [![npm version](https://badge.fury.io/js/nearest-sdk.svg)](https://badge.fury.io/js/nearest-sdk)
+# Nearest! JavaScript SDK [![npm version](https://badge.fury.io/js/%40nearest%2Fnearest-sdk.svg)](https://badge.fury.io/js/%40nearest%2Fnearest-sdk)
 
 ## Setup
 Install the NPM Package by using
 
-``` 
-npm i nearest-sdk -S
+```
+npm i @nearest/nearest-sdk -S
 ```
 
 Now you can use the SDK by importing it. The code is isomophic ready.
@@ -14,19 +14,19 @@ Now you can use the SDK by importing it. The code is isomophic ready.
 ``` javascript
 import { NearestClient } from 'nearest-sdk';
 
-const SDK = NearestClient({
+const nearest = NearestClient({
   apiKey: 'your-api-public-key',
   app: 'your-appId',
 });
 ```
 
 ## The API
-The API works with this schema: `SDK.$topic.$action(options, [callback])`. All methods return a Promise except `callback` is defined. 
+The API works with schema `SDK.$topic.$action(options, [callback])`. All methods return a Promise except `callback` is defined.
 
 ## Methods
 
 ### App
-#### get
+#### get (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -35,7 +35,7 @@ lang: String        | The language code (de) for translations.
 ***
 
 ### Nodes
-#### get
+#### get (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -44,7 +44,7 @@ lang: String	    | The language code (de) for translated content.
 
 ***
 
-#### nearest
+#### nearest (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -56,7 +56,7 @@ limit: Int          | Limit amount of nodes.
 
 ***
 
-#### getByBound
+#### getByBound (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -65,7 +65,7 @@ limit: Int	        | Limit amount of nodes. Default 10.
 
 ***
 
-#### getByRegion
+#### getByRegion (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -75,7 +75,7 @@ limit: Int	        | Max. amount of nodes. Default 10.
 ***
 
 ### Stats
-#### getStats
+#### getStats (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -83,14 +83,14 @@ regions: [Int]!     | Required: Ids of the region
 
 ***
 
-#### getCountriesNodesAvailable
+#### getCountriesNodesAvailable (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
 
 ***
 
-#### getRegionsNodesAvailable
+#### getRegionsNodesAvailable (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -99,7 +99,7 @@ region: Int!        | Required: Array of region ids (osm_id).
 ***
 
 ### Regions
-#### get
+#### get (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -108,7 +108,7 @@ lang: String        | The language code (de) for translated content.
 
 ***
 
-#### getByPath
+#### getByPath (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -117,7 +117,7 @@ lang: String        | The language code (de) for translated content.
 
 ***
 
-#### getByName
+#### getByName (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
@@ -127,7 +127,7 @@ lang: String        | The language code (de) for translated content.
 ***
 
 ### Directions
-#### get
+#### get (options, [callback])
 ##### Request parameters
 Parameter           | Description
 ------------------- | -------------
