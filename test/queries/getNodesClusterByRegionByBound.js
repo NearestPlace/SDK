@@ -61,7 +61,8 @@ describe(`Cluster Query by region by bound (AppId: ${TestAppId})`, () => {
           .and.to.be.an('array');
         expect(result).to.be.an('object')
           .and.to.have.property('regions')
-          .and.to.be.an('array');
+          .and.to.be.an('array')
+          .and.to.have.lengthOf.not.equal(0);
         done();
       }
     });
