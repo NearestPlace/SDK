@@ -97,4 +97,26 @@ describe(`Regions Query (AppId: ${TestAppId})`, () => {
         console.log('Problem', error);
       });
   });
+
+  it('Get regions for name "Bologna" and point (11.33,44.49...) return (Promise) its data.', (done) => {
+    const lat = 44.49355;
+    const lng = 11.33474;
+
+    NearestSDK.regions.getByNameAndPoint({
+      name: 'Bologna',
+      lat,
+      lng,
+      lang: 'de',
+      fields: ['id', 'path'],
+    })
+      .then((result) => {
+        expect(result).to.be.an('object')
+          .and.to.have.property('id')
+          .and.to.be.equal(43172);
+        done();
+      })
+      .catch((error) => {
+        console.log('Problem', error);
+      });
+  });
 });
