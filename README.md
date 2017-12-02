@@ -126,6 +126,17 @@ lang: String        | The language code (de) for translated content.
 
 ***
 
+#### getByNameAndPoint (options, [callback])
+##### Request parameters
+Parameter           | Description
+------------------- | -------------
+name: String!       | Required: Name of a region (Bologna)
+lat: Float!         | Required: Latitiude of a Point within a region
+lng: Float!         | Required: Longitude of a Point within a region
+lang: String        | The language code (de) for translated content.
+
+***
+
 ### Directions
 #### get (options, [callback])
 ##### Request parameters
